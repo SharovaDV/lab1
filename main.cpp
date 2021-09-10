@@ -2,8 +2,6 @@
 #include <stdio.h>
 #include <windows.h>
 
-#define WINVER 0x0A00
-#define FILESYSNAMEBUFSIZE MAX_PATH
 #define INFO_BUFFER_SIZE 32767
 #define MAX_DATA_LENGTH 255
 using namespace std;
