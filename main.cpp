@@ -99,7 +99,7 @@ int main()
     double frequency = freq.QuadPart;;
     double us = 1000000 * tact / frequency;
 
-    printf("Frequency = %u Hz\n",  freq);
+    printf("\nFrequency = %lld Hz\n",  freq.QuadPart);
     printf("clock = %f us\n",  us);
 
 }
