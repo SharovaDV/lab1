@@ -3,7 +3,7 @@
 #include <windows.h>
 
 #define INFO_BUFFER_SIZE 32767
-#define MAX_DATA_LENGTH 255
+#define MAX_KEY_LENGTH 255
 using namespace std;
 
 int main()
