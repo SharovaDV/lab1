@@ -64,24 +64,35 @@ int main()
     FindVolumeClose(search);
 
 //1.5
- HKEY Key;
+ HKEY     DWORD dwSize;
+    TCHAR szName[MAX_KEY_LENGTH];
+    HKEY hKey;
     DWORD dwIndex = 0;
-    TCHAR tcValue[MAX_PATH] = { 0 };
-    TCHAR lpValueName[MAX_DATA_LENGTH];
-    DWORD lpcchValueName = MAX_DATA_LENGTH;
-    DWORD lpDataLength = MAX_DATA_LENGTH;
+    DWORD retCode;
+    DWORD BufferSize = 8192;
+    PPERF_DATA_BLOCK PerfData = (PPERF_DATA_BLOCK)malloc(BufferSize);
+    DWORD cbData = BufferSize;
 
-    if (RegOpenKeyEx(HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\CurrentVersion\\Run",0,
-        KEY_ALL_ACCESS, &Key) == ERROR_SUCCESS)
+    if (RegOpenKeyEx(HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\CurrentVersion\\Run",
+        0, KEY_ALL_ACCESS, &hKey) == !ERROR_SUCCESS)
+    {
+        cout << "Function RegOpenKeyEx() failed!" << endl;
+    }
+    else cout << "\n1.5.  Startup commands:" << endl;
+
+    while (1) {
+        dwSize = sizeof(szName);
+        retCode = RegEnumValue(hKey, dwIndex, szName, &dwSize, NULL, NULL, NULL, NULL);
+        if (retCode == ERROR_SUCCESS)
         {
-            while (RegEnumValue(Key, dwIndex, lpValueName, &lpcchValueName, NULL, NULL, (LPBYTE)tcValue, &lpDataLength) == ERROR_SUCCESS)
-            {
-            printf("Programm %d: %s : %s \n", dwIndex+1, lpValueName, tcValue);
+            RegQueryValueEx(hKey, szName, NULL, NULL, (LPBYTE)PerfData, &cbData);
+            printf("      %d: %s:  %s\n", dwIndex + 1, szName, PerfData);
             dwIndex++;
-            }
         }
+        else break;
+    }
 
-    RegCloseKey(Key);
+    RegCloseKey(hKey);
 //2
     LARGE_INTEGER freq;
     LARGE_INTEGER t1;
