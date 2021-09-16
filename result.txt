@@ -2,6 +2,7 @@ Version is 6.2 (9200)
 System directory: C:\WINDOWS\system32
 Computer name: DESKTOP-LK6DIJC
 User name: zzz
+
 C:\
 \\?\Volume{f47853ec-482e-4395-86d8-78cda5ba3b25}\ Total size: 271799513088 bytes
 Free space: 399268376576 bytes
