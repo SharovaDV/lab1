@@ -41,28 +41,26 @@ int main()
     TCHAR buffer[MAX_PATH];
     DWORD  cchBufferLength = MAX_PATH;
     TCHAR Names[MAX_PATH];
-    ULARGE_INTEGER total, available, free;
+    ULARGE_INTEGER total, free;
 
     HANDLE search = FindFirstVolume(buffer, sizeof(buffer));
 
     do {
-        printf("\n%s", buffer);
         GetVolumePathNamesForVolumeName(buffer, Names, cchBufferLength, &cchBufferLength);
-        printf("\n  First path: %s", Names);
-        GetDiskFreeSpaceEx(buffer,&available,&total,&free);
+        printf("\n%s", Names);
+        printf("\n%s", buffer);
 
-        if (GetDiskFreeSpaceEx(buffer,&available,&total,&free)==0)
+        if (GetDiskFreeSpaceEx(Names,&total,&free,NULL)==0)
         {
-            printf("\n  No information available.\n ");
+            printf("\nNo information\n ");
         }
         else
         {
-        printf("\n  Total size: %u  bytes ", total);
-        printf("\n  Free space: %u  bytes\n", available);
-        }
-    } while (FindNextVolume(search, buffer, sizeof(buffer)));
+        cout << " Total size: " << total.QuadPart << " bytes" << "\nFree space: " << free.QuadPart << " bytes";
+        }   
+  } 
+    while (FindNextVolume(search, buffer, sizeof(buffer)));
     FindVolumeClose(search);
-
 //1.5
  HKEY     DWORD dwSize;
     TCHAR szName[MAX_KEY_LENGTH];
