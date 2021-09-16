@@ -21,16 +21,23 @@ No information
 
 \\?\Volume{892c97c1-37e0-11e6-abf7-806e6f6e6963}\
 No information
-1.5.  Startup commands:
-      1: OneDrive:  "C:\Users\zzz\AppData\Local\Microsoft\OneDrive\OneDrive.exe" /background
-      2: CiscoMeetingDaemon:  "C:\Users\zzz\AppData\Local\Microsoft\OneDrive\OneDrive.exe" /background
-      3: CCleaner Smart Cleaning:  "C:\Program Files\CCleaner\CCleaner64.exe" /MONITOR
-      4: GoogleChromeAutoLaunch_AD2248573835302DF42504FB61F0809E:  "C:\Program Files\CCleaner\CCleaner64.exe" /MONITOR
-      5: MediaGet2:  C:\Users\zzz\MediaGet2\mediaget.exe --minimized
-      6: Discord:  C:\Users\zzz\MediaGet2\mediaget.exe --minimized
-      7: Browser Manager:  C:\Users\zzz\AppData\Local\Yandex\BrowserManager\MBLauncher.exe
-Frequency = 10000000 Hz
-clock = 0.300000 us
 
-Process returned 0 (0x0)   execution time : 0.356 s
+Program 1: OneDrive "C:\Users\zzz\AppData\Local\Microsoft\OneDrive\OneDrive.exe" /background
+
+Program 2: CiscoMeetingDaemon "C:\Users\zzz\AppData\Local\Microsoft\OneDrive\OneDrive.exe" /background
+
+Program 3: CCleaner Smart Cleaning "C:\Program Files\CCleaner\CCleaner64.exe" /MONITOR
+
+Program 4: GoogleChromeAutoLaunch_AD2248573835302DF42504FB61F0809E "C:\Program Files\CCleaner\CCleaner64.exe" /MONITOR
+
+Program 5: MediaGet2 C:\Users\zzz\MediaGet2\mediaget.exe --minimized
+
+Program 6: Discord C:\Users\zzz\MediaGet2\mediaget.exe --minimized
+
+Program 7: Browser Manager C:\Users\zzz\AppData\Local\Yandex\BrowserManager\MBLauncher.exe
+
+Frequency = 10000000 Hz
+clock = 0.400000 us
+
+Process returned 0 (0x0)   execution time : 0.146 s
 Press any key to continue.
