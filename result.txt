@@ -2,31 +2,24 @@ Version is 6.2 (9200)
 System directory: C:\WINDOWS\system32
 Computer name: DESKTOP-LK6DIJC
 User name: zzz
-
-\\?\Volume{f47853ec-482e-4395-86d8-78cda5ba3b25}\
-  First path: C:\
-  Total size: 4131385344  bytes
-  Free space: 1247154176  bytes
+C:\
+\\?\Volume{f47853ec-482e-4395-86d8-78cda5ba3b25}\ Total size: 271799513088 bytes
+Free space: 399268376576 bytes
 
 \\?\Volume{8a97aaac-eb43-42d2-b42b-2f90f487f57b}\
-  First path:
-  Total size: 523235328  bytes
-  Free space: 44924928  bytes
+No information
+
 
 \\?\Volume{826a3e25-19d4-44a7-8565-ca4f6771b9a0}\
-  First path:
-  Total size: 3121606656  bytes
-  Free space: 2347524096  bytes
+No information
+
 
 \\?\Volume{aa937a7f-7bb9-430f-95fe-4baf74b9ea61}\
-  First path:
-  Total size: 268435456  bytes
-  Free space: 240222208  bytes
+No information
+
 
 \\?\Volume{892c97c1-37e0-11e6-abf7-806e6f6e6963}\
-  First path:
-  No information available.
-
+No information
 1.5.  Startup commands:
       1: OneDrive:  "C:\Users\zzz\AppData\Local\Microsoft\OneDrive\OneDrive.exe" /background
       2: CiscoMeetingDaemon:  "C:\Users\zzz\AppData\Local\Microsoft\OneDrive\OneDrive.exe" /background
