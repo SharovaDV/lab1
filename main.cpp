@@ -57,7 +57,7 @@ int main()
         else
         {
         printf("\n  Total size:%lld bytes", total.QuadPart);
-        printf("\n  Free space:%lld bytes\n", free.QuadPart); << free.QuadPart << " bytes";
+        printf("\n  Free space:%lld bytes\n", free.QuadPart); 
         }   
   } 
     while (FindNextVolume(search, buffer, sizeof(buffer)));
@@ -77,7 +77,7 @@ int main()
             {
                 lpcchValueName = sizeof(lpValueName);
                 RegQueryValueEx(Key, lpValueName, NULL, REG_NONE, (LPBYTE)tcValue, &lpDataLength);
-            cout << "Program : \n" << dwIndex+1 << " ";
+            cout << "\nProgram " << dwIndex+1 << ": ";
             wcout << lpValueName;
             cout << " ";
             wcout << tcValue;
