@@ -3,7 +3,7 @@
 #include <windows.h>
 
 #define INFO_BUFFER_SIZE 32767
-#define MAX_KEY_LENGTH 255
+#define MAX_DATA_LENGTH 255
 using namespace std;
 
 int main()
@@ -56,40 +56,35 @@ int main()
         }
         else
         {
-        cout << " Total size: " << total.QuadPart << " bytes" << "\nFree space: " << free.QuadPart << " bytes";
+        printf("\n  Total size:%lld bytes", total.QuadPart);
+        printf("\n  Free space:%lld bytes\n", free.QuadPart); << free.QuadPart << " bytes";
         }   
   } 
     while (FindNextVolume(search, buffer, sizeof(buffer)));
     FindVolumeClose(search);
 //1.5
- HKEY     DWORD dwSize;
-    TCHAR szName[MAX_KEY_LENGTH];
-    HKEY hKey;
+     HKEY Key;
     DWORD dwIndex = 0;
-    DWORD retCode;
-    DWORD BufferSize = 8192;
-    PPERF_DATA_BLOCK PerfData = (PPERF_DATA_BLOCK)malloc(BufferSize);
-    DWORD cbData = BufferSize;
+    TCHAR tcValue[MAX_PATH] = { 0 };
+    TCHAR lpValueName[MAX_DATA_LENGTH];
+    DWORD lpcchValueName = MAX_DATA_LENGTH;
+    DWORD lpDataLength = MAX_DATA_LENGTH;
 
-    if (RegOpenKeyEx(HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\CurrentVersion\\Run",
-        0, KEY_ALL_ACCESS, &hKey) == !ERROR_SUCCESS)
-    {
-        cout << "Function RegOpenKeyEx() failed!" << endl;
-    }
-    else cout << "\n1.5.  Startup commands:" << endl;
-
-    while (1) {
-        dwSize = sizeof(szName);
-        retCode = RegEnumValue(hKey, dwIndex, szName, &dwSize, NULL, NULL, NULL, NULL);
-        if (retCode == ERROR_SUCCESS)
+ if (RegOpenKeyEx(HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\CurrentVersion\\Run",0,
+    KEY_ALL_ACCESS, &Key)== ERROR_SUCCESS)
         {
-            RegQueryValueEx(hKey, szName, NULL, NULL, (LPBYTE)PerfData, &cbData);
-            printf("      %d: %s:  %s\n", dwIndex + 1, szName, PerfData);
+            while (RegEnumValue(Key, dwIndex, lpValueName, &lpcchValueName, NULL, REG_NONE, NULL, NULL) == ERROR_SUCCESS)
+            {
+                lpcchValueName = sizeof(lpValueName);
+                RegQueryValueEx(Key, lpValueName, NULL, REG_NONE, (LPBYTE)tcValue, &lpDataLength);
+            cout << "Program : \n" << dwIndex+1 << " ";
+            wcout << lpValueName;
+            cout << " ";
+            wcout << tcValue;
+            cout << " " << "\n";
             dwIndex++;
-        }
-        else break;
-    }
-
+            }
+   
     RegCloseKey(hKey);
 //2
     LARGE_INTEGER freq;
